@@ -1,11 +1,11 @@
 <script setup lang="ts">
+
 </script>
 
 <template>
-    <main class="container mx-auto h-dvh w-dvw">
-        <RouterView />
-    </main>
+    <div>forgot-password</div>
 </template>
 
 <style scoped>
+
 </style>
