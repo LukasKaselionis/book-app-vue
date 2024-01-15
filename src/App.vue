@@ -2,22 +2,10 @@
 </script>
 
 <template>
-    <header>
-        <a href="/">Home</a>
-        <a href="/book">Book</a>
-    </header>
-
-    <main>
+    <main class="container mx-auto h-dvh w-dvw">
         <RouterView />
     </main>
 </template>
 
 <style scoped>
-header {
-    display: flex;
-    place-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-    line-height: 1.5;
-}
 </style>
