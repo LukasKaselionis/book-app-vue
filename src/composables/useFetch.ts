@@ -1,3 +1,5 @@
+import ResponseInterface from "@/interfaces/ResponseInterface";
+
 interface ApiConfig {
     url: string;
     method?: string;
@@ -5,13 +7,13 @@ interface ApiConfig {
     body?: string;
 }
 
-export const useFetch = async (url: string, config: ApiConfig): Promise<Response> => {
+export const useFetch = async (config: ApiConfig): Promise<ResponseInterface> => {
     const api_url: string = import.meta.env.VITE_APP_API_URL;
     const token: string = "token" in localStorage ? `Bearer ${localStorage.getItem("token")}` : null;
     let response = null;
 
     try {
-        const result: Response = await fetch(`${api_url}${url}`, {
+        const result: Response = await fetch(`${api_url}${config.url}`, {
             mode: "cors",
             cache: "no-cache",
             credentials: "same-origin",

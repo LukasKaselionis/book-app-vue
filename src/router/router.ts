@@ -17,7 +17,23 @@ const router: Router = createRouter({
             name: "login",
             component: (): Promise<Component> => import("@/pages/LoginView.vue"),
             meta: {
-                requiresAuth: true
+                requiresAuth: false
+            },
+        },
+        {
+            path: "/forgot-password",
+            name: "forgot-password",
+            component: (): Promise<Component> => import("@/pages/ForgotPasswordView.vue"),
+            meta: {
+                requiresAuth: false
+            },
+        },
+        {
+            path: "/new-password/:hash",
+            name: "new-password",
+            component: (): Promise<Component> => import("@/pages/NewPasswordView.vue"),
+            meta: {
+                requiresAuth: false
             },
         },
         {

@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
-    darkMode: false,
+    darkMode: "media",
     theme: {
         screens: {
             "sm": "640px",
