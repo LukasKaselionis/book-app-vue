@@ -1,22 +1,17 @@
 <script setup lang="ts">
     import { onMounted, ref } from "vue";
-    import { useFetch } from "@/composables/useFetch";
+    import BookBuilder from "@/builder/BookBuilder";
+    import BookInterface from "@/interfaces/BookInterface";
 
-    const books = ref([]);
-    const api_url = "http://localhost:3004";
+    const books = ref<BookInterface[]>([]);
+    const Book = new BookBuilder();
 
     onMounted(() => {
         getBookList();
     });
 
     const getBookList = async (): Promise<void> => {
-        const response = await useFetch("/book", {
-            method: "GET"
-        });
-
-        if (response) {
-            books.value = response.data.books;
-        }
+        books.value = await Book.list();
     };
 </script>
 
@@ -30,7 +25,7 @@
             <h1>{{ book.title }}</h1>
             <p>{{ book.description }}</p>
             <img
-                :src="`${api_url}/${book.imagePath}`"
+                :src="book.imagePath"
                 alt=""
                 height="250"
                 width="250"
